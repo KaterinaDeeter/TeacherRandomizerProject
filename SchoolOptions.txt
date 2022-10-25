@@ -1,0 +1,84 @@
+The district is: MUSD
+The level is: High School
+The school is: Mesa High
+
+The district is: MUSD
+The level is: Elementary School
+The school is: Red Mountain Ranch
+
+The district is: CUSD
+The level is: Elementary School
+The school is: Andersen Elementary
+
+The district is: KUSD
+The level is: Middle School
+The school is: Kyrene Traditional Academy K-8 [KTA]
+
+The district is: GUSD
+The level is: Middle School
+The school is: Highland Junior High
+
+The district is: KUSD
+The level is: Middle School
+The school is: Kyrene de las Manitas Innovation Academy (MAN)
+
+The district is: CUSD
+The level is: High School
+The school is: Hamilton High
+
+The district is: CUSD
+The level is: Middle School
+The school is: Andersen Junior High
+
+The district is: CUSD
+The level is: High School
+The school is: Arizona College Prep High School
+
+The district is: KUSD
+The level is: Elementary School
+The school is: Kyrene de la Mariposa Computer Science Academy (MAR)
+
+The district is: CUSD
+The level is: High School
+The school is: Chandler High
+
+The district is: MUSD
+The level is: Elementary School
+The school is: Franklin at Alma
+
+The district is: KUSD
+The level is: High School
+The school is: Tempe High
+
+The district is: KUSD
+The level is: High School
+The school is: Desert Vista
+
+The district is: MUSD
+The level is: Middle School
+The school is: Kino
+
+The district is: GUSD
+The level is: High School
+The school is: Desert Ridge High
+
+The district is: KUSD
+The level is: Elementary School
+The school is: Kyrene de los Niños (NIN)
+
+The district is: GUSD
+The level is: High School
+The school is: Gilbert High
+
+The district is: CUSD
+The level is: High School
+The school is: Hamilton High
+
+The district is: GUSD
+The level is: Middle School
+The school is: Highland Junior High
+
+The district is: CUSD
+The level is: High School
+The school is: Perry High
+
