@@ -1,3 +1,7 @@
+//This entire class and even package is solely for the purpose of finding which schools I am using so I can randomize
+//teachers. I really didn't want to make a list of every single teacher in these four districts, and while the lengths
+//in here may be a bit extreme, I feel it's a bit easier to just put in a select few teachers from predetermined values.
+//I might even add a grade component in here.
 package SchoolSelection;
 
 import java.util.ArrayList;
@@ -7,31 +11,39 @@ import java.util.Random;
 public class DistrictSelect
 {
     private List<String> districtOptions = new ArrayList<>();
-    private List<String> schoolTypeOptions = new ArrayList<>();
+    private List<String> schoolLevelOptions = new ArrayList<>();
 
+    //Lists for various levels in the KUSD/TUHSD District
     private List<String> KUSDElementary = new ArrayList<>();
     private List<String> KUSDMiddle = new ArrayList<>();
     private List<String> TUHSD = new ArrayList<>();
 
-    List<String> CUSDElementary = new ArrayList<>();
-    List<String> CUSDMiddle = new ArrayList<>();
-    List<String> CUSDHigh = new ArrayList<>();
+    //Lists for various levels in the CUSD District
+    private List<String> CUSDElementary = new ArrayList<>();
+    private List<String> CUSDMiddle = new ArrayList<>();
+    private List<String> CUSDHigh = new ArrayList<>();
 
-    List<String> GUSDElementary = new ArrayList<>();
-    List<String> GUSDMiddle = new ArrayList<>();
-    List<String> GUSDHigh = new ArrayList<>();
+    //Lists for various levels in the GUSD District
+    private List<String> GUSDElementary = new ArrayList<>();
+    private List<String> GUSDMiddle = new ArrayList<>();
+    private List<String> GUSDHigh = new ArrayList<>();
 
-    List<String> MUSDElementary = new ArrayList<>();
-    List<String> MUSDMiddle = new ArrayList<>();
-    List<String> MUSDHigh = new ArrayList<>();
+    //Lists for various levels in the MUSD District
+    private List<String> MUSDElementary = new ArrayList<>();
+    private List<String> MUSDMiddle = new ArrayList<>();
+    private List<String> MUSDHigh = new ArrayList<>();
 
+    //Random later used for picking random items from the created lists
     private Random generator = new Random();
+
+    //All the important values that will later be set
     private String districtChoice = "";
     private String levelChoice = "";
-    public String schoolChoice = "";
     private String fullSelection = "";
+    private String schoolChoice = "";
 
-    //Randomize a district and set a value to that. Then if district == x, run randomizer for specific school type,
+    //Constructor. When called on it will create the list for district options and school level options so they can be
+    //immediately called on right after.
     public DistrictSelect()
     {
         districtOptions.add("KUSD"); //TUHSD is only a high school option, and is considered Kyrene High
@@ -39,23 +51,27 @@ public class DistrictSelect
         districtOptions.add("GUSD");
         districtOptions.add("MUSD");
 
-        schoolTypeOptions.add("Elementary School");
-        schoolTypeOptions.add("Middle School");
-        schoolTypeOptions.add("High School");
+        schoolLevelOptions.add("Elementary School");
+        schoolLevelOptions.add("Middle School");
+        schoolLevelOptions.add("High School");
     }
 
+    //This picks a district at random and sets a String to which district will be used
     private void setDistrictChoice()
     {
-        int a = generator.nextInt(districtOptions.size());
-        districtChoice = districtOptions.get(a);
+        int districtNumber = generator.nextInt(districtOptions.size());
+        districtChoice = districtOptions.get(districtNumber);
     }
 
+    //This picks a level (elem, middle, high) at random and sets String to which level is selected
     private void setLevelChoice()
     {
-        int a = generator.nextInt(schoolTypeOptions.size());
-        levelChoice = schoolTypeOptions.get(a);
+        int levelNumber = generator.nextInt(schoolLevelOptions.size());
+        levelChoice = schoolLevelOptions.get(levelNumber);
     }
 
+    //Calls on previous two methods and sets FullSelection. This was for data collection purposes, and since has lost
+    //its purpose because I just referenced the above in the toString. But it's helpful to run both of the above at once
     public void setFullSelection()
     {
         setDistrictChoice();
@@ -63,11 +79,12 @@ public class DistrictSelect
         fullSelection = districtChoice + " " +  levelChoice;
     }
 
-    public String getFullSelection() //This is for data tracking purposes
-    {
-        return fullSelection;
-    }
-
+    //This is a longer method and handles two main processes (I would have split it up, but I felt that was too redundant)
+    //It takes the values from running setFullSelection() and narrows down the district and level options. From here it
+    //creates the lists seen above and selects a random option from what it creates. Admittedly, I did it like this instead
+    //of creating the full list in the constructor, because I was hoping to get this to run a little faster and not use
+    //unecessary resources (if it never selects MUSD Elem, why should it even create such a long list?). I also like that
+    //this just minimizes user control entirely. The whole point of this was to be as random as possible.
     public void listSelecreator() //RUN FULL SELECTION BEFORE USING THIS
     {
         if (districtChoice.equals("KUSD"))
@@ -145,6 +162,8 @@ public class DistrictSelect
 
     }
 
+    //THE FOLLOWING CREATE methods are meant to assign and add all the schools into these lists. It is incredibly lengthy
+    //and quite literally is just listname.add(""); over and over again...
     private void createKUSDElementary() //DONE
     {
         KUSDElementary.add("Kyrene de las Brisas (BRI)");
@@ -373,6 +392,7 @@ public class DistrictSelect
         MUSDHigh.add("Westwood");
     }
 
+    //When called on, these will take a random element from the list and set it to school choice.
     private void randomizeKUSDElementary()
     {
         int a = generator.nextInt(KUSDElementary.size());
@@ -437,11 +457,7 @@ public class DistrictSelect
         schoolChoice = MUSDHigh.get(a);
     }
 
-    public String getSchoolChoice()
-    {
-        return schoolChoice;
-    }
-
+    //The only information that truly matters :). This returns the district, the school level, and the school itself.
     public String toString()
     {
         return "The district is: " + districtChoice + "\nThe level is: " + levelChoice + "\nThe school is: " + schoolChoice;
