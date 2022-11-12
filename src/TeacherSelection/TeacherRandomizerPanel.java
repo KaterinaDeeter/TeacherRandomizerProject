@@ -10,12 +10,11 @@ public class TeacherRandomizerPanel extends JPanel
     private JLabel results;
 //    private JButton fullRandom;
     private JComboBox<String> schoolSelect;
-    private String[] schoolStrings = {"Mesa High School", "Red Mountain Ranch Elementary", "Andersen Elementary" ,
-            "Kyrene Traditional Academy", "Highland Junor High", "Kyrene de las Manitas Innovation Academy",
-            "Hamilton High", "Anderson Junior High", "Arizona College Prep High School", "Kino Junior High",
-            "Kyrene de la Mariposa Computer Science Academy", "Chandler High School",
-            "Franklin at Alma Elementary School", "Tempe High School", "Desert Vista High School",
-            "Desert Ridge High School", "Kyrene de los Niños", "Gilbert High School", "Perry High School"};
+    private String[] schoolStrings = {"Red Mountain Ranch Elementary", "Andersen Elementary", "Franklin at Alma Elementary School",
+            "Kyrene de la Mariposa Computer Science Academy", "Anderson Junior High", "Highland Junior High",
+            "Kino Junior High", "Arizona College Prep High School", "Chandler High School", "Desert Ridge High School",
+            "Desert Vista High School", "Gilbert High School", "Hamilton High", "Mesa High School", "Perry High School",
+            "Tempe High School"};
     String selection;
     ButtonListener listener = new ButtonListener();
     TeacherSelect selector = new TeacherSelect();
@@ -24,10 +23,6 @@ public class TeacherRandomizerPanel extends JPanel
     {
         intro = new JLabel("Welcome, select an option");
         add(intro);
-
-//        fullRandom = new JButton("Fully Randomized");
-//        fullRandom.addActionListener(listener);
-//        add(fullRandom);
 
         schoolSelect = new JComboBox<>(schoolStrings);
         schoolSelect.addActionListener(listener);
@@ -51,8 +46,9 @@ public class TeacherRandomizerPanel extends JPanel
             if (event.getSource() == schoolSelect)
             {
                 selection = (String) schoolSelect.getSelectedItem();
-                results.setText(selection);
                 selector.setSchoolName(selection);
+                selector.teacherGenerator();
+                results.setText(selector.getTeacher());
             }
         }
     }

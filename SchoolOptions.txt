@@ -10,17 +10,9 @@ The district is: CUSD
 The level is: Elementary School
 The school is: Andersen Elementary
 
-The district is: KUSD
-The level is: Middle School
-The school is: Kyrene Traditional Academy K-8 [KTA]
-
 The district is: GUSD
 The level is: Middle School
 The school is: Highland Junior High
-
-The district is: KUSD
-The level is: Middle School
-The school is: Kyrene de las Manitas Innovation Academy (MAN)
 
 The district is: CUSD
 The level is: High School
