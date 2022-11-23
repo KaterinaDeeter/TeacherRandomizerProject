@@ -1,3 +1,18 @@
+/*
+ * This class allows for a randomizer to select a teacher based on grade (if elementary) from select groups based on the
+ * districts chosen within district select. Where district select had helped to pick schools, this finds individual teachers
+ *
+ * There are two different processes for the two main school classes:
+ *
+ * Elementary: Grade randomizer created first. The school selector will pick a grade first, and then once it picks a grade
+ * it will reference a list of all the teachers in that grade (in the user selected school) and randomly select from the list
+ *
+ * Middle/High: Teacher lists are a lot longer here, but include all STEM teachers. Any math, science, and elective
+ * relating to such is included in here. Based on list length, it chooses a random number, and picks a teacher correlating
+ * to their position in the list (index).
+ *
+ * I have selected three teachers from each school.
+ */
 package TeacherSelection;
 
 import java.util.Arrays;
@@ -20,10 +35,14 @@ public class TeacherSelect
         teacher = "undefined";
     }
 
-    public void setSchoolName(String schoolName)
+    public void setSchoolName(String schoolName) //Gets school name from the dropdown in the GUI
     {
         this.schoolName = schoolName;
     }
+
+    //This is the method I discussed that selects a grade to check in the school list-- two types of elementary because
+    //some extend to include 6th grade, where others do not. While I could make these differentiations in the school methods
+    //themselves, this made it a little quicker and will be easier to follow. What qualifies is below
     private void setSchoolandGradeLevel() //I removed middle and high school here, because those will exclusively be STEM focused
     {
         if (isElementaryTypeA())
@@ -36,6 +55,9 @@ public class TeacherSelect
         }
     }
 
+    //All the elementary schools are grouped into those categories. That way when grade set is called, it can know how to
+    //set it. This is really nitpicky, but I find having all these broken up improves readability and ensures a method is
+    //not too verbose. I'm really just using this as an opportunity to do some practice with what I've been learning.
     private boolean isElementaryTypeA()
     {
         if (schoolName.equals("Red Mountain Ranch Elementary") || schoolName.equals("Franklin at Alma Elementary School"))
@@ -61,7 +83,7 @@ public class TeacherSelect
 
     }
 
-
+    //Takes the school name and calls on a specific method to grab a teacher from whatever school name is selected
     public void teacherGenerator() //ADD to this one as we continue
     {
         setSchoolandGradeLevel();
@@ -134,6 +156,9 @@ public class TeacherSelect
             perryHighTeacherSelector();
         }
     }
+    //All of these follow the same format, so I'll just break it down here. Teachers are put into an array. Array is
+    //used as a list, and a teacher is selected by randomly selecting an element in the list. If there's a specific grade
+    //level (elementary only) it will ensure it is in the right grade first.
     private void redMountainRanchTeacherSelector() //DONE
     {
         if (grade == 0) //Done
@@ -473,13 +498,18 @@ public class TeacherSelect
         teacher = teacherList.get(generator.nextInt(40));
     }
 
+    //Allows GUI to retrieve teacher to output to the user
     public String getTeacher()
     {
         return teacher;
     }
-
+    public String getSchoolName()
+    {
+        return schoolName;
+    }
 }
 
+//Here were some of my initial structuring ideas if you were curious.
 //else if (grade == 5)
 //        {
 //        String[] teacherArray = {"", ""};

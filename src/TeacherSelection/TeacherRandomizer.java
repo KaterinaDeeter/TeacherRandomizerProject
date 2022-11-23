@@ -1,10 +1,11 @@
+//Basic driver class. This just allows for the creation of the GUI. Not much else happens here.
 package TeacherSelection;
 
 import javax.swing.JFrame;
+
 public class TeacherRandomizer
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args)  {
         //Create frame and panel
         JFrame frame = new JFrame("Teacher Randomizer");
         TeacherRandomizerPanel panel = new TeacherRandomizerPanel();
